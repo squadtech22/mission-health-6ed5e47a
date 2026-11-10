@@ -92,6 +92,7 @@ export function ClinicShell({ className, children }: { className?: string; child
             <strong>Explore</strong>
             {nav.map(([href, label]) => <Link href={href} key={href}>{label}</Link>)}
             <Link href="/resources">Patient resources</Link>
+            <Link href="/patient-registration">Patient registration</Link>
           </div>
           <div>
             <strong>Care &amp; services</strong>
@@ -131,7 +132,9 @@ export function ClinicShell({ className, children }: { className?: string; child
             </div>
           </div>
         </div>
-        <div className="shell footer-bottom"><span>© 2026 {BUSINESS_NAME}</span><a href={PHONE_TEL}>Call {PHONE} <ArrowRight size={13} /></a></div>
+        {/* The texting-platform carrier review requires the Privacy Policy and
+            Terms & Conditions to be reachable from the footer of every page. */}
+        <div className="shell footer-bottom"><span>© 2026 {BUSINESS_NAME}</span><nav className="footer-legal" aria-label="Legal"><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms">Terms &amp; Conditions</Link><Link href="/patient-registration">Patient registration</Link></nav><a href={PHONE_TEL}>Call {PHONE} <ArrowRight size={13} /></a></div>
       </footer>
     </>
   )

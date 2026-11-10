@@ -650,3 +650,104 @@ a.team-linkedin:hover { background: var(--accent); border-color: var(--accent); 
 /* the header sticks, so an anchor lands under it without room to spare */
 section[id] { scroll-margin-top: 130px; }
 @media (max-width: 680px) { section[id] { scroll-margin-top: 110px; } }
+
+/* ── Legal pages and patient registration ─────────────────────────────────
+   Privacy Policy, Terms & Conditions and the printable registration form.
+   Built for the texting-platform carrier review; see lib/sms.ts. */
+
+/* footer: the policy links sit in the bottom bar on every page */
+.footer-legal { display: flex; flex-wrap: wrap; gap: 4px 22px; }
+.footer-bottom .footer-legal a { text-decoration: underline; text-decoration-color: rgba(195,180,147,.45); text-underline-offset: 4px; }
+.footer-bottom .footer-legal a:hover { color: #eadfca; text-decoration-color: currentColor; }
+
+/* new patients hero: the form link sits beside the call button */
+.inner-hero-content .hero-form-link { display: inline-flex; align-items: center; margin-left: 24px; vertical-align: middle; }
+@media (max-width: 680px) { .inner-hero-content .hero-form-link { display: flex; margin: 18px 0 0; } }
+
+/* shared short hero, no photograph */
+.legal-hero { padding: 88px 0 72px; }
+.legal-hero h1 { font-size: clamp(44px, 6vw, 70px); }
+.inner-hero-content > p.legal-updated { margin: -12px 0 0; color: var(--muted-foreground); font-size: 15px; font-weight: 700; letter-spacing: .02em; }
+.legal-hero .contact-form-urgent { max-width: 650px; margin: 0; }
+@media (max-width: 680px) { .legal-hero { padding: 64px 0 56px; } .legal-hero h1 { font-size: 44px; } }
+
+.legal-body { background: var(--surface-white); padding: 88px 0 104px; }
+.legal-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 72px; align-items: start; }
+.legal-toc { position: sticky; top: 140px; }
+.legal-toc ol { list-style: none; display: flex; flex-direction: column; gap: 2px; border-left: 2px solid var(--border); }
+.legal-toc a { display: block; padding: 6px 0 6px 16px; margin-left: -2px; border-left: 2px solid transparent; color: var(--muted-foreground); font-size: 14px; font-weight: 700; line-height: 1.4; }
+.legal-toc a:hover { color: var(--primary-text); border-left-color: var(--primary); }
+.legal-content { max-width: 720px; }
+.legal-section + .legal-section { margin-top: 44px; padding-top: 44px; border-top: 1px solid var(--border); }
+.legal-section h2 { color: #181818; font-size: clamp(28px, 2.8vw, 36px); font-weight: 500; letter-spacing: -.03em; line-height: 1.15; margin: 0 0 18px; }
+.legal-section p { color: #4a4133; font-size: 17px; line-height: 1.75; margin: 0 0 14px; }
+.legal-section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 4px 0 16px; }
+.legal-section li { position: relative; padding-left: 24px; color: #4a4133; font-size: 17px; line-height: 1.65; }
+.legal-section li::before { content: ''; position: absolute; left: 4px; top: .7em; width: 7px; height: 7px; border-radius: 50%; background: var(--primary); }
+.legal-section .legal-links { display: flex; flex-wrap: wrap; gap: 4px 28px; margin: 6px 0 0; }
+.legal-section .legal-links .text-link { display: inline-flex; align-items: center; margin-top: 0; }
+@media (max-width: 900px) {
+  .legal-layout { grid-template-columns: 1fr; gap: 40px; }
+  .legal-toc { position: static; }
+}
+@media (max-width: 680px) { .legal-body { padding: 56px 0 72px; } .legal-section p, .legal-section li { font-size: 16px; } }
+
+/* registration form */
+.reg-body { background: var(--surface-white); padding: 64px 0 104px; }
+.reg-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 48px; }
+.reg-form { display: flex; flex-direction: column; gap: 48px; max-width: 940px; }
+.reg-section { min-width: 0; border: 0; border-top: 3px solid var(--surface-dark); padding: 24px 0 0; }
+.reg-heading { color: var(--primary-text); font-size: 14px; font-weight: 800; letter-spacing: .14em; line-height: 1.4; text-transform: uppercase; margin: 0 0 22px; }
+.reg-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px 22px; align-items: end; }
+.reg-span-2 { grid-column: span 2; } .reg-span-3 { grid-column: span 3; } .reg-span-4 { grid-column: span 4; } .reg-span-6 { grid-column: 1 / -1; }
+.reg-optional { color: var(--muted-foreground); font-weight: 400; }
+.reg-hint { color: var(--muted-foreground); font-size: 14px; line-height: 1.5; }
+.reg-choice { min-width: 0; border: 0; padding: 0; }
+.reg-choice legend, .reg-label { color: #4a4133; font-size: 14px; font-weight: 700; letter-spacing: .02em; margin-bottom: 10px; }
+.reg-choice > div { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.reg-choice label { display: inline-flex; align-items: center; gap: 8px; min-height: 32px; color: #2b261e; font-size: 15px; cursor: pointer; }
+.reg-choice input, .reg-check input { accent-color: var(--primary-deep); }
+.reg-choice input { width: 18px; height: 18px; }
+.reg-text { color: #4a4133; font-size: 16px; line-height: 1.7; }
+.reg-check { display: flex; gap: 14px; align-items: flex-start; color: #2b261e; font-size: 16px; line-height: 1.65; cursor: pointer; }
+.reg-check input { flex: 0 0 auto; width: 22px; height: 22px; margin-top: 2px; }
+.reg-note { display: flex; flex-direction: column; gap: 8px; color: var(--muted-foreground); font-size: 14px; line-height: 1.6; }
+.reg-note a, .reg-check a { color: var(--primary-text); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.reg-sms { border-top-color: var(--primary); background: #f7f1e6; border-radius: 0 0 18px 18px; padding: 24px 28px 30px; }
+.reg-signature-line { display: block; height: 49px; border-bottom: 1px solid #4a4133; }
+.reg-footer { margin-top: 56px; display: flex; flex-direction: column; gap: 4px; }
+.reg-footer .reg-actions { margin-bottom: 8px; }
+.reg-footer p { color: var(--muted-foreground); font-size: 15px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; }
+.reg-footer .text-link { display: inline-flex; align-items: center; margin-top: 0; }
+.print-only, .print-inline { display: none; }
+@media (max-width: 680px) {
+  .reg-body { padding: 44px 0 72px; }
+  .reg-grid { grid-template-columns: 1fr; }
+  .reg-span-2, .reg-span-3, .reg-span-4 { grid-column: 1 / -1; }
+  .reg-sms { padding: 22px 18px 26px; }
+  .reg-actions .button { width: 100%; }
+}
+
+/* printing: only the page's own content, on white */
+@media print {
+  @page { size: letter; margin: .55in; }
+  .utility, .site-header, .site-footer, .skip-link, .no-print { display: none !important; }
+  html, body, .reg-body, .legal-body { background: #fff !important; }
+  .print-only { display: flex; }
+  .print-inline { display: inline; }
+  .reg-body { padding: 0; }
+  .reg-body .shell { width: 100%; }
+  .reg-letterhead { flex-direction: column; align-items: center; gap: 2px; margin-bottom: 22px; padding-bottom: 12px; border-bottom: 1px solid #b9ab8e; text-align: center; font-size: 10pt; color: #4a4133; }
+  .reg-letterhead strong { font-family: var(--font-care-serif), serif; font-size: 22pt; font-weight: 600; color: #181818; }
+  .reg-letterhead em { margin-top: 6px; font-style: normal; font-size: 10pt; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #181818; }
+  .reg-form { gap: 20px; max-width: none; }
+  .reg-section { break-inside: avoid; padding-top: 12px; border-top-width: 2px; }
+  .reg-heading { margin-bottom: 12px; font-size: 9pt; }
+  .reg-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px 16px; }
+  .reg-span-2 { grid-column: span 2; } .reg-span-3 { grid-column: span 3; } .reg-span-4 { grid-column: span 4; }
+  .reg-sms { background: none; padding: 12px 0 0; }
+  .field input, .field textarea { border-color: #8a7e68; }
+  .field input { padding: 8px 10px; }
+  .legal-toc { display: none; }
+  .legal-layout { display: block; }
+}

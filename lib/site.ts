@@ -4,6 +4,17 @@ export const LOGO_ALT = 'Mission Primary Care Family Practice'
 
 export const BUSINESS_NAME = 'Mission Primary Care LLC'
 
+/** The practice name in running copy, without the entity suffix. */
+export const PRACTICE_NAME = 'Mission Primary Care'
+
+/**
+ * The live domain. The texting-platform (A2P 10DLC) registration quotes it,
+ * and so do the Privacy Policy and the printed registration form, so all
+ * three must match.
+ */
+export const SITE_URL = 'https://www.m-primarycare.com'
+export const SITE_DOMAIN = 'www.m-primarycare.com'
+
 export const PHONE = '510-796-7796'
 export const PHONE_TEL = 'tel:15107967796'
 export const FAX = '510-796-7797'

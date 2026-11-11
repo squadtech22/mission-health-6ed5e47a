@@ -42,7 +42,6 @@ type Provider = { name: string; specialty: string; languages: string; role?: str
 export const providers: Provider[] = [
   { name: 'Pacita Aducayen', photo: '/team/pacita-aducayen.webp', specialty: 'Internal medicine', role: '', languages: 'Speaks English and Tagalog.', bookable: false },
   { name: 'Gautam Pareek, MD', photo: '/team/gautam-pareek.webp', specialty: 'Internal medicine', languages: 'Speaks English and Hindi.' },
-  { name: 'Nipa Sinh, MD', photo: '/team/nipa-sinh.webp', placeholder: true, specialty: 'Family medicine', languages: 'Speaks English, Hindi, and Gujarati.' },
   { name: 'Kashif Abdullah, MD', photo: '/team/kashif-abdullah.webp', specialty: 'General practice', languages: 'Speaks English, Hindi, and Urdu.' },
   { name: 'James Keaney, MD', photo: '/team/james-keaney.webp', specialty: 'Emergency medicine', languages: 'Speaks English.' },
   { name: 'Muhammad Khan, PA-C', photo: '/team/muhammad-khan.webp', specialty: 'Physician assistant', languages: 'Speaks English, Urdu, Hindi, Punjabi, and Farsi.' },
@@ -279,8 +278,8 @@ export function ProvidersSection({ showLeadership = true, showAll = false }: { s
   const [perSlide, setPerSlide] = useState(4)
   const [slide, setSlide] = useState(0)
 
-  // A stand-in portrait still counts as waiting for one, so Nipa Sinh stays at
-  // the back until a real photograph arrives. Not taking bookings is no reason to
+  // A stand-in portrait still counts as waiting for one, so a provider without a
+  // real photograph stays at the back until one arrives. Not taking bookings is no reason to
   // demote a provider, so Pacita Aducayen keeps her place at the front.
   const complete = (p: Provider) => Boolean(p.photo) && !p.placeholder
   const ordered = [...providers.filter(complete), ...providers.filter((p) => !complete(p))]
@@ -341,15 +340,24 @@ export function ProvidersSection({ showLeadership = true, showAll = false }: { s
     </div>
     <div className={showLeadership ? 'providers-layout' : 'providers-layout is-solo'}>
       {showLeadership && (
-        <figure className="team-panel" data-aos="fade-up">  
-          <h3 className="team-panel-title">The leadership behind Mission Primary Care</h3>  
-          <p className="team-panel-kicker">Leadership that cares</p>  
-          <p className="team-panel-lead">Zia Hamidi provides strategic leadership and operational oversight for the practice through its Management Services Organization (MSO).</p>  
-          <img src="/team/zia-portrait.jpg" alt="" width={1086} height={1448} loading="lazy" decoding="async" />  
-          <blockquote><p>My ambition is to build Mission Primary Care into a trusted and respected healthcare organization recognized for exceptional patient care, accessibility, and clinical excellence. Through a patient-centered approach, I aim to improve health outcomes, strengthen our communities, and create a lasting positive impact on the lives of the people we serve.</p></blockquote>  
-          <figcaption><span><strong>Zia Hamidi</strong><span>Executive Director &middot; Management &amp; Operations</span></span>{ZIA_LINKEDIN  
-            ? <a className="team-linkedin" href={ZIA_LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="Zia Hamidi on LinkedIn (opens in a new tab)"><LinkedInMark /></a>  
-            : <span className="team-linkedin" aria-hidden="true"><LinkedInMark /></span>}</figcaption>  
+        <figure className="team-panel" data-aos="fade-up">
+  
+          <h3 className="team-panel-title">The leadership behind Mission Primary Care</h3>
+  
+          <p className="team-panel-kicker">Leadership that cares</p>
+  
+          <p className="team-panel-lead">Zia Hamidi provides strategic leadership and operational oversight for the practice through its Management Services Organization (MSO).</p>
+  
+          <img src="/team/zia-portrait.jpg" alt="" width={1086} height={1448} loading="lazy" decoding="async" />
+  
+          <blockquote><p>My ambition is to build Mission Primary Care into a trusted and respected healthcare organization recognized for exceptional patient care, accessibility, and clinical excellence. Through a patient-centered approach, I aim to improve health outcomes, strengthen our communities, and create a lasting positive impact on the lives of the people we serve.</p></blockquote>
+  
+          <figcaption><span><strong>Zia Hamidi</strong><span>Executive Director &middot; Management &amp; Operations</span></span>{ZIA_LINKEDIN
+  
+            ? <a className="team-linkedin" href={ZIA_LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="Zia Hamidi on LinkedIn (opens in a new tab)"><LinkedInMark /></a>
+  
+            : <span className="team-linkedin" aria-hidden="true"><LinkedInMark /></span>}</figcaption>
+  
         </figure>
       )}
       <div className="provider-carousel">
